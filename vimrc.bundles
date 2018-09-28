@@ -36,6 +36,20 @@ Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
 Plug 'vim-ruby/vim-ruby'
 Plug 'vim-scripts/tComment'
+Plug 'vim-scripts/Arduino-syntax-file'
+Plug 'scrooloose/nerdtree'
+Plug 'digitaltoad/vim-pug'
+Plug 'posva/vim-vue'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'mattn/emmet-vim'
+Plug 'w0rp/ale'
+Plug 'skywind3000/asyncrun.vim'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+Plug 'flowtype/vim-flow', {
+            \ 'autoload': {
+            \     'filetypes': 'javascript'
+            \ }}
 
 if g:has_async
   Plug 'w0rp/ale'

@@ -12,6 +12,7 @@
   co = checkout
   pf = push --force-with-lease
   st = status
+  unstage = reset HEAD --
 [core]
   excludesfile = ~/.gitignore
   autocrlf = input
@@ -25,5 +26,8 @@
   autosquash = true
 [include]
   path = ~/.gitconfig.local
+[user]
+  name = Ryan Parsley
+  email = rmparsley@gmail.com
 [diff]
-  colorMoved = zebra
+  tool = vimdiff

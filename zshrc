@@ -46,3 +46,9 @@ _load_settings "$HOME/.zsh/configs"
 
 # aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
+export PATH="/usr/local/bin:$PATH"
+
+export NVM_DIR="$HOME/.nvm"
+export PATH=$PATH:~/Applications/f-engrave
+export PATH=$PATH:~/Library/Android/sdk/tools
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
