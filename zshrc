@@ -41,6 +41,8 @@ _load_settings() {
 }
 _load_settings "$HOME/.zsh/configs"
 
+source ~/.bin/tmuxinator.zsh
+
 # Local config
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 
