@@ -15,5 +15,7 @@ alias s="rspec"
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'
 
+alias t="todo.sh -t"
+
 # Include custom aliases
 [[ -f ~/.aliases.local ]] && source ~/.aliases.local
