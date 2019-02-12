@@ -15,6 +15,9 @@ set autowrite     " Automatically :write before running commands
 set background=dark
 colorscheme solarized
 
+set mouse=a
+set ttymouse=xterm2
+
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
 if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
@@ -51,10 +54,10 @@ augroup vimrcEx
   if g:has_async
     set updatetime=1000
     let g:ale_lint_on_text_changed = 0
-    autocmd CursorHold * call ale#Lint()
-    autocmd CursorHoldI * call ale#Lint()
-    autocmd InsertEnter * call ale#Lint()
-    autocmd InsertLeave * call ale#Lint()
+    autocmd CursorHold * call ale#Queue(0)
+    autocmd CursorHoldI * call ale#Queue(0)
+    autocmd InsertEnter * call ale#Queue(0)
+    autocmd InsertLeave * call ale#Queue(0)
   else
     echoerr "The thoughtbot dotfiles require NeoVim or Vim 8"
   endif
@@ -152,14 +155,10 @@ nnoremap <C-l> <C-w>l
 nnoremap ]r :ALENextWrap<CR>
 nnoremap [r :ALEPreviousWrap<CR>
 
+let g:NERDTreeNodeDelimiter = "\u00a0"
+
 " NerdTreeToggle per docs
 map <Leader>n :NERDTreeToggle<CR>
-
-" configure syntastic syntax checking to check on open as well as save
-let g:syntastic_check_on_open=1
-let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
-let g:syntastic_eruby_ruby_quiet_messages =
-    \ {"regex": "possibly useless use of a variable in void context"}
 
 " Set spellfile to location that is guaranteed to exist, can be symlinked to
 " Dropbox or kept in Git and managed outside of thoughtbot/dotfiles using rcm.
@@ -171,10 +170,24 @@ set complete+=kspell
 " Always use vertical diffs
 set diffopt+=vertical
 
+" Enable Ale omnicompletion integration
+let g:ale_completion_enabled = 1
+let g:airline#extensions#ale#enabled = 1
+let g:airline_solarized_bg='dark'
+
 " Asynchronous Lint Engine (ALE)
 " Limit linters used for JavaScript.
 let g:ale_linters = {
 \  'javascript': ['flow', 'eslint', 'typecheck'],
+\   'typescript': ['tslint'],
+\   'css': ['prettier'],
+\   'html': ['prettier']
+\}
+let g:ale_fixers = {
+\   'javascript': ['prettier'],
+\   'typescript': ['tslint'],
+\   'css': ['prettier'],
+\   'html': ['prettier']
 \}
 highlight clear ALEErrorSign " otherwise uses error bg color (typically red)
 highlight clear ALEWarningSign " otherwise uses error bg color (typically red)
@@ -187,6 +200,42 @@ let g:ale_echo_msg_format = '%linter% says %s'
 " Map keys to navigate between lines with errors and warnings.
 nnoremap <leader>an :ALENextWrap<cr>
 nnoremap <leader>ap :ALEPreviousWrap<cr>
+" air-line
+let g:airline_powerline_fonts = 1
+
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+
+" unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.crypt = '🔒'
+let g:airline_symbols.linenr = '☰'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.maxlinenr = ''
+let g:airline_symbols.maxlinenr = '㏑'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.spell = 'Ꞩ'
+let g:airline_symbols.notexists = 'Ɇ'
+let g:airline_symbols.whitespace = 'Ξ'
+
+" powerline symbols
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = '☰'
+let g:airline_symbols.maxlinenr = ''
 
 " Local config
 if filereadable($HOME . "/.vimrc.local")

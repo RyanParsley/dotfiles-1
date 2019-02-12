@@ -57,6 +57,8 @@ Plug 'Quramy/vim-js-pretty-template'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'Quramy/tsuquyomi'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'flowtype/vim-flow', {
             \ 'autoload': {
             \     'filetypes': 'javascript'
