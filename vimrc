@@ -16,7 +16,10 @@ set background=dark
 colorscheme solarized
 
 set mouse=a
-set ttymouse=xterm2
+
+if !has('nvim')
+  set ttymouse=xterm2
+endif
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
@@ -34,6 +37,7 @@ if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
 endif
 
 filetype plugin indent on
+autocmd VimEnter * if globpath('.,..','node_modules/@angular') != '' | call angular_cli#init() | endif
 
 augroup vimrcEx
   autocmd!
@@ -179,7 +183,7 @@ let g:airline_solarized_bg='dark'
 " Limit linters used for JavaScript.
 let g:ale_linters = {
 \  'javascript': ['flow', 'eslint', 'typecheck'],
-\   'typescript': ['tslint'],
+\   'typescript': ['tslint', 'prettier'],
 \   'css': ['prettier'],
 \   'html': ['prettier']
 \}

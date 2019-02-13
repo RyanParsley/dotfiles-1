@@ -59,6 +59,7 @@ Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'Quramy/tsuquyomi'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'bdauria/angular-cli.vim'
 Plug 'flowtype/vim-flow', {
             \ 'autoload': {
             \     'filetypes': 'javascript'

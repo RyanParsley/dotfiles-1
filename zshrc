@@ -48,7 +48,6 @@ source ~/.bin/tmuxinator.zsh
 
 # aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
-export GEM_HOME=/Users/Ryan/.gem
 export PATH="$GEM_HOME/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export NVM_DIR="$HOME/.nvm"
