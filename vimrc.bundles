@@ -60,10 +60,16 @@ Plug 'Quramy/tsuquyomi'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'bdauria/angular-cli.vim'
-Plug 'flowtype/vim-flow', {
-            \ 'autoload': {
-            \     'filetypes': 'javascript'
-            \ }}
+Plug 'flowtype/vim-flow', { 'autoload': { 'filetypes': 'javascript' } }
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+
+let g:deoplete#enable_at_startup = 1
 
 if g:has_async
   Plug 'w0rp/ale'
