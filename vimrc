@@ -21,6 +21,8 @@ if !has('nvim')
   set ttymouse=xterm2
 endif
 
+let g:vimwiki_list = [{'path': '~/Projects/notes/', 'syntax': 'markdown', 'ext': '.md'}]
+
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
 if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
@@ -72,6 +74,7 @@ augroup END
 let g:is_posix = 1
 
 " Softtabs, 2 spaces
+set softtabstop=2
 set tabstop=2
 set shiftwidth=2
 set shiftround
