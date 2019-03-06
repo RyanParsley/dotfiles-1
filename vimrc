@@ -1,3 +1,9 @@
+if filereadable(expand("~/.vimrc.bundles"))
+  source ~/.vimrc.bundles
+endif
+
+set termguicolors
+
 " Leader
 let mapleader = " "
 
@@ -13,7 +19,7 @@ set laststatus=2  " Always display the status line
 set autowrite     " Automatically :write before running commands
 
 set background=dark
-colorscheme solarized
+colorscheme cosmic_latte
 
 set mouse=a
 
@@ -29,9 +35,6 @@ if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
   syntax on
 endif
 
-if filereadable(expand("~/.vimrc.bundles"))
-  source ~/.vimrc.bundles
-endif
 
 " Load matchit.vim, but only if the user hasn't installed a newer version.
 if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
@@ -180,7 +183,7 @@ set diffopt+=vertical
 " Enable Ale omnicompletion integration
 let g:ale_completion_enabled = 1
 let g:airline#extensions#ale#enabled = 1
-let g:airline_solarized_bg='dark'
+let g:airline_theme='cosmic_latte_dark'
 
 " Asynchronous Lint Engine (ALE)
 " Limit linters used for JavaScript.
