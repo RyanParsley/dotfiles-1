@@ -39,6 +39,12 @@ _load_settings() {
     fi
   fi
 }
+
+# Base16 Shell
+BASE16_SHELL="$HOME/.config/base16-shell/"
+[ -n "$PS1" ] && \
+    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+        eval "$("$BASE16_SHELL/profile_helper.sh")"
 _load_settings "$HOME/.zsh/configs"
 
 source ~/.bin/tmuxinator.zsh
