@@ -67,6 +67,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'bdauria/angular-cli.vim'
 Plug 'vimwiki/vimwiki'
+Plug 'nightsense/cosmic_latte'
 Plug 'flowtype/vim-flow', { 'autoload': { 'filetypes': 'javascript' } }
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
