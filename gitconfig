@@ -25,20 +25,22 @@
 [include]
   path = ~/.gitconfig.local
 [user]
-  name = Ryan Parsley
-  email = rmparsley@gmail.com
+	name = Ryan
+	email = ryan.parsley@jbhunt.com
 [diff]
-	tool = vimdiff
+  tool = vimdiff
   keepBackup = false
 [mergetool "nvim"]
     cmd = nvim -f -c \"Gdiff\" \"$MERGED\"
 [mergetool "vimdiff"]
     cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
-[mergetool]
-	keepBackup = false
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
 [mergetool "sourcetree"]
 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
+[rerere]
+	enabled = 1
+[mergetool]
+	keepBackup = false

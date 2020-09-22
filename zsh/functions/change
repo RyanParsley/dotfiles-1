@@ -1,0 +1,11 @@
+# No arguments: Echo out a little help
+# With arguments: Recursively search for the first arg and replace with the
+# second arg. This is dependant on git and I'm ok with that.
+
+change() {
+  if [[ $# == 2 ]]; then
+    git grep -l $1 | xargs sed -i '' -e s/$1/$2/g
+  else
+    echo 'This change function needs 2 strings to work'
+  fi
+}

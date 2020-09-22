@@ -175,7 +175,7 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
-let g:vimwiki_list = [{'path': '~/Projects/notes/', 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_list = [{'path': '~/Projects/notes/', 'syntax': 'markdown', 'ext': '.md'},{'path': '~/Projects/Applications.wiki', 'syntax': 'markdown', 'ext': '.md'}]
 " let wiki.nested_syntaxes = {'ruby': 'ruby', 'python': 'python', 'c++': 'cpp', 'sh': 'sh', 'javascript': 'js'}
 
 " Switch syntax highlighting on, when the terminal has colors
@@ -334,7 +334,7 @@ let g:airline_theme='cosmic_latte_dark'
 
 " Enable Ale omnicompletion integration
 let g:ale_completion_enabled = 1
-"let g:ale_fix_on_save = 1
+let g:ale_fix_on_save = 1
 
 " Asynchronous Lint Engine (ALE)
 " Limit linters used for JavaScript.
@@ -401,6 +401,15 @@ let g:airline_symbols.maxlinenr = ''
 " Local config
 if filereadable($HOME . "/.vimrc.local")
   source ~/.vimrc.local
+endif
+
+" yank to clipboard
+if has("clipboard")
+  set clipboard=unnamed " copy to the system clipboard
+
+  if has("unnamedplus") " X11 support
+    set clipboard+=unnamedplus
+  endif
 endif
 
 "let g:ycm_path_to_python_interpreter = "/usr/bin/python"
