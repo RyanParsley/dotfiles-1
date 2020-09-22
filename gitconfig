@@ -14,7 +14,6 @@
   st = status
   unstage = reset HEAD --
 [core]
-	excludesfile = /Users/jisarpa/.gitignore
   autocrlf = input
 [commit]
   template = ~/.gitmessage
@@ -25,8 +24,8 @@
 [include]
   path = ~/.gitconfig.local
 [user]
-	name = Ryan
-	email = ryan.parsley@jbhunt.com
+	name = Ryan Parsley
+	email = rmparsley@gmail.com
 [diff]
   tool = vimdiff
   keepBackup = false
@@ -34,12 +33,6 @@
     cmd = nvim -f -c \"Gdiff\" \"$MERGED\"
 [mergetool "vimdiff"]
     cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
 [rerere]
 	enabled = 1
 [mergetool]
